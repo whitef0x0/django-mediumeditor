@@ -2,6 +2,12 @@
     function setup() {
         var selector = '.django-mediumeditor-editable';
         var editor = new MediumEditor(selector, MediumEditorOptions);
+        
+        // Initialize MediumEditorInsertPlugin
+        $(selector).mediumInsert({
+            editor: editor
+        });
+        
         // update the text box
         editor.subscribe('blur', function (event, editable) {
             // Get the HTML from the editor
